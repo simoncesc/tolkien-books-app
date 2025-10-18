@@ -13,7 +13,7 @@ export default function BibliografiaItaliana() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch("/BibliografiaItaliana.json")
+    fetch(import.meta.env.BASE_URL + "BibliografiaItaliana.json")
       .then(res => res.json())
       .then(data => {
         setLibri(data);
@@ -49,14 +49,14 @@ export default function BibliografiaItaliana() {
     <div style={containerStyle}>
       {/* Header */}
       <div style={headerStyle}>
-        <button onClick={() => navigate("/")} style={buttonHomeStyle}>🏠 Home</button>
+        <button onClick={() => navigate(import.meta.env.BASE_URL + "/")} style={buttonHomeStyle}>🏠 Home</button>
         <h1 style={{ margin: 0, color: "#6BC282" }}>Bibliografia Italiana</h1>
       </div>
 
       {/* Hero */}
       <div style={heroStyle}>
         <img
-          src="/assets/copertina_bg_it.jpg"
+          src={`${import.meta.env.BASE_URL}assets/copertina_bg_it.jpg`}
           alt="Hero"
           style={heroImageStyle}
         />
@@ -89,7 +89,7 @@ export default function BibliografiaItaliana() {
       {/* Griglia libri */}
       <div style={gridStyle}>
         {libriFiltrati.map(libro => (
-          <div key={libro.Id} style={cardStyle} onClick={() => navigate(`/scheda/${libro.Id}`)}>
+          <div key={libro.Id} style={cardStyle} onClick={() => navigate(`/bibliografia-italiana/scheda/${libro.Id}`)}>
             <img
               src={libro.Copertina || "https://via.placeholder.com/180x270?text=Nessuna+Immagine"}
               alt={libro.Titolo}

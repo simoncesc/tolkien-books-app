@@ -11,7 +11,7 @@ export default function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/bibliografia-italiana" element={<BibliografiaItaliana />} />
-        <Route path="/scheda/:id" element={<SchedaLibro />} />
+        <Route path="/bibliografia-italiana/scheda/:Id" element={<SchedaLibro />} />
       </Routes>
     </div>
   );

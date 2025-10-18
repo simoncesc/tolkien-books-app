@@ -2,25 +2,25 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function SchedaLibro() {
-  const { id } = useParams();
+  const { Id } = useParams();
   const navigate = useNavigate();
   const [libro, setLibro] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch("/BibliografiaItaliana.json")
+    fetch(import.meta.env.BASE_URL + "BibliografiaItaliana.json")
       .then(res => res.json())
       .then(data => {
-        setLibro(data.find(l => l.Id === id) || null);
+        setLibro(data.find(l => l.Id === Id) || null);
         setLoading(false);
       })
       .catch(err => { console.error(err); setLoading(false); });
-  }, [id]);
+  }, [Id]);
 
-  if (loading) return <p style={{ color: "#E0E0E0", padding: "2rem" }}>⏳ Caricamento...</p>;
+  if (loading) return <p style={{ color: "#141414ff", padding: "2rem" }}>⏳ Caricamento...</p>;
   if (!libro) return (
     <div style={{ color: "#E0E0E0", padding: "2rem" }}>
-      <button onClick={() => navigate("/bibliografia")} style={buttonStyle}>🏠 Torna alla Bibliografia</button>
+      <button onClick={() => navigate("/bibliografia-italiana")} style={buttonStyle}>🏠 Torna alla Bibliografia</button>
       <p>Libro non trovato.</p>
     </div>
   );
@@ -28,7 +28,7 @@ export default function SchedaLibro() {
   return (
     <div style={{ backgroundColor: "#121212", color: "#E0E0E0", minHeight: "100vh", paddingBottom: "4rem" }}>
       <div style={{ padding: "1.5rem 8%" }}>
-        <button onClick={() => navigate("/bibliografia")} style={buttonStyle}>🏠 Torna alla Bibliografia</button>
+        <button onClick={() => navigate("/bibliografia-italiana")} style={buttonStyle}>🏠 Torna alla Bibliografia</button>
       </div>
 
       <div style={{ display: "flex", flexWrap: "wrap", gap: "2rem", padding: "2rem 8%", alignItems: "flex-start" }}>
