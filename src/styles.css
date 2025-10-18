@@ -1,0 +1,8 @@
+html, body, #root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  background-color: #121212; /* grigio scuro classico per tema dark */
+  color: #E0E0E0; /* testo chiaro */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
