@@ -1,16 +1,18 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Home from "./pages/Home";
-import BibliografiaItaliana from "./pages/BibliografiaItaliana";
-import SchedaLibro from "./pages/SchedaLibro";
+import { Routes, Route } from "react-router-dom";
+import Home from "./pages/Home.jsx";
+import BibliografiaItaliana from "./pages/BibliografiaItaliana.jsx";
+import SchedaLibro from "./pages/SchedaLibro.jsx";
+import Header from "./components/Header.jsx";
 
 export default function App() {
   return (
-    <BrowserRouter>
+    <div style={{ backgroundColor: "#121212", minHeight: "100vh", color: "#EEE" }}>
+      <Header />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/bibliografia-italiana" element={<BibliografiaItaliana />} />
-        <Route path="/scheda/:Id" element={<SchedaLibro />} /> {/* :Id parametro */}
+        <Route path="/scheda/:id" element={<SchedaLibro />} />
       </Routes>
-    </BrowserRouter>
+    </div>
   );
 }
